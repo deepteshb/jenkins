@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage('Build & Retry on Failure'){
+            options{
+                retry(3)
+            }
+            steps{
+                echo "before error statement"
+                echo "Error statement just got executed"
+                echo "after error statement"
+                
+            }
+        }
+    }
+}
